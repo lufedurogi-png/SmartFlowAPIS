@@ -3,15 +3,18 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
-const entradaRoutes = require('./routes/entradaRoutes');
-const ordenCompraRoutes = require('./routes/ordenCompraRoutes');
-const conversionRoutes = require('./routes/conversionRoutes');
-const traspasoRoutes = require('./routes/traspasoRoutes');
-const ingresoDesdeReferenciaRoutes = require('./routes/ingresoDesdeReferenciaRoutes');
-const movimientoRoutes = require('./routes/movimientoRoutes');
-const salidaRoutes = require('./routes/salidaRoutes');
-const reportesRoutes = require('./routes/reportesRoutes');
-const informeRoutes = require('./routes/informeRoutes');
+const empleadoRoutes = require('./routes/empleado/empleadoRoutes');
+
+// Rutas actualizadas con carpeta empleado
+const entradaRoutes = require('./routes/empleado/entradaRoutes');
+const ordenCompraRoutes = require('./routes/empleado/ordenCompraRoutes');
+const conversionRoutes = require('./routes/empleado/conversionRoutes');
+const traspasoRoutes = require('./routes/empleado/traspasoRoutes');
+const ingresoDesdeReferenciaRoutes = require('./routes/empleado/ingresoDesdeReferenciaRoutes');
+const movimientoRoutes = require('./routes/empleado/movimientoRoutes');
+const salidaRoutes = require('./routes/empleado/salidaRoutes');
+const reportesRoutes = require('./routes/empleado/reportesRoutes');
+const informeRoutes = require('./routes/empleado/informeRoutes');
 
 // Importar rutas
 const authRoutes = require('./routes/auth');
@@ -109,6 +112,8 @@ app.get('/debug/files', (req, res) => {
     });
   }
 });
+
+app.use('/api/empleado', empleadoRoutes);
 
 app.use('/api/informe', informeRoutes);
 

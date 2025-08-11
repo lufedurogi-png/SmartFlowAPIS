@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const OrdenCompra = require('../models/ordenCompra');
-const { crearOrdenCompra, validarOrdenCompra } = require('../controllers/ordenCompraController');
+const { crearOrdenCompra, validarOrdenCompra } = require('../../controllers/empleado/ordenCompraController');
 
 // Obtener una orden de compra por ID
 router.get('/ordenes_compra/:id', async (req, res) => {
